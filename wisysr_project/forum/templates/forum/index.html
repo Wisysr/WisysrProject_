@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Популярные категории</h2>
+<ul class="list-group">
+    {% for category in categories %}
+    <li class="list-group-item">
+        <a href="{% url 'category_topics' category.id %}">{{ category.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Последние темы</h2>
+<ul class="list-group">
+    {% for topic in topics %}
+    <li class="list-group-item">
+        <a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

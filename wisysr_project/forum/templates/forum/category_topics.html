@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Темы в категории: {{ category.name }}</h2>
+<ul class="list-group">
+    {% for topic in topics %}
+        <li class="list-group-item">
+            <a href="{% url 'topic_detail' topic.id %}">{{ topic.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
