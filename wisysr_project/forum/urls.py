@@ -1,8 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import CategoryViewSet, TopicViewSet
-from django.urls import path
 from .views import home, category_topics, topic_detail
+from .views import register
+from .views import upload_image
 
 router = DefaultRouter()
 router.register(r'categories', CategoryViewSet)
@@ -14,4 +15,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('category/<int:category_id>/', category_topics, name='category_topics'),
     path('topic/<int:topic_id>/', topic_detail, name='topic_detail'),
+    path('register/', register, name='register'),
+    path('upload/', upload_image, name='upload_image'),
 ]
